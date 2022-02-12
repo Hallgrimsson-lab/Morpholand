@@ -24,7 +24,7 @@ Simple Docker builds are a two-step process. First it builds an image which inst
 
 Here's an example workflow. First, open a terminal and ```cd``` to the directory with this Dockerfile in it. Then:
 
-```docker build build . -t Morpholand```
+```docker build . -t Morpholand```
 
 The ```-t``` flag give our image a tag. Without it Docker will make up a name, but it's easier to refer to something you've named. This build step will take a while creating an Ubuntu install and compiling all of the packages, so leave this running in the background or something. 
 
