@@ -24,13 +24,13 @@ Simple Docker builds are a two-step process. First it builds an image which inst
 
 Here's an example workflow. First, open a terminal and ```cd``` to the directory with this Dockerfile in it. Then:
 
-```docker build . -t Morpholand```
+```docker build . -t morpholand```
 
 The ```-t``` flag give our image a tag. Without it Docker will make up a name, but it's easier to refer to something you've named. This build step will take a while creating an Ubuntu install and compiling all of the packages, so leave this running in the background or something. 
 
 Once you've successfully built the image, you can now run it with:
 
-```docker run -d -p 8787:8787 -e ROOT=TRUE -e PASSWORD=yourpasswordhere Morpholand```
+```docker run -d -p 8787:8787 -e ROOT=TRUE -e PASSWORD=yourpasswordhere morpholand```
 
 The ```-d``` flag runs the container in detached mode, which means that the terminal does not have to stay busy to continue running the container/Rstudio. You can stop the container by going to the docker GUI dashboard and hitting the stop button. The ```-p``` flag tells Docker to map the container's 8787 port to your computer's 8787 port. Rstudio runs on 8787 by default in the image, but you can change the second 8787 if you'd like the container on a different port on your machine. 
 
