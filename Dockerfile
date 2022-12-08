@@ -1,11 +1,13 @@
 # get shiny serves plus tidyverse packages image
-FROM rocker/rstudio
+FROM rocker/rstudio:3.6.3-ubuntu18.04
 
 #system libraries of general use
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     libssl-dev \
-    build-essential
+    build-essential \
+    libharfbuzz-dev \
+    libfribidi-dev
 
 RUN apt-add-repository ppa:zarquon42/statismo-develop
 RUN sudo apt update
