@@ -1,20 +1,14 @@
 # Morpholand
 
-This repo is meant to ease the pain of installing morphometrics tools to do fancy things like non-linear registration of meshes. We approach this problem by building a Docker image that should install on any operating system. 
+This repo is meant to ease the pain of installing morphometrics tools to perform non-linear registration of meshes. We approach this problem by building a Docker image that should install on any operating system.
 
-The image is based off of the Rstudio docker base image which is based on Ubuntu. The script currently installs the following packages:
+# How the pipeline works
 
-- **Ubuntu libraries**
-  - libssl
-  - statismo
+1. Manually landmark each individual mesh with guide points. This can be done using [Meshlab's](https://www.meshlab.net/) pick point tool. The 5 points used for this template are shown in order below.
 
-- **R packages**
-  - devtools: used for install_github()
-  - RvtkStatismo: package for non-linear mesh registration
-  - mesheR
-  - geomorph
-  - Morpho
-  - Rvcg
+![template_points](./template_points.png)
+
+2. Work through the provided script register_mesh_statismo.R. This will load the target mesh and template, do initial alignments and non-linear deformation of the template to the target mesh.
 
 # How to build the docker image and get Rstudio running
 

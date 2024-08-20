@@ -1,4 +1,4 @@
-# get shiny serves plus tidyverse packages image
+#build will fail with with small RAM allotments with uninformative error codes-- Set aside at least 8GB
 FROM rocker/rstudio:3.6.3-ubuntu18.04
 
 #system libraries of general use
@@ -17,8 +17,11 @@ RUN sudo apt install -y statismo-dev
 RUN R -e "install.packages('devtools', repos='http://cran.rstudio.com/')"
 RUN R -e "devtools::install_github('zarquon42b/RvtkStatismo',ref='develop')"
 RUN R -e "devtools::install_github('zarquon42b/mesheR')"
-RUN R -e "install.packages('geomorph', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('Morpho', repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('Rvcg', repos='http://cran.rstudio.com/')"
 
-#build will fail with with small RAM allotments with uninformative error codes-- ask me how I know. Set aside at least 8GB
+# copy example data and script
+COPY example_mesh.ply /home/rstudio/
+COPY example_mesh_picked_points.pp /home/rstudio/
+COPY example_template.ply /home/rstudio/
+COPY example_template_picked_points.pp /home/rstudio/
+COPY register_mesh_statismo.R /home/rstudio/
