@@ -4,11 +4,11 @@ library(Morpho)
 library(RvtkStatismo)
 library(rgl)
 
-template <- file2mesh('FaceBase_3/Analysis/syndromeModel/dense_5k_template.ply')
-templatepoints <- as.matrix(read.mpp('FaceBase_3/Analysis/syndromeModel/dense_5k_template_picked_points.pp'))
+template <- file2mesh('~/dense_5k_template.ply')
+templatepoints <- as.matrix(read.mpp('~/dense_5k_template_picked_points.pp'))
 
-m1 <- file2mesh('FaceBase_3/Analysis/syndromeModel/example_mesh.ply')
-m1points <- as.matrix(read.mpp('FaceBase_3/Analysis/syndromeModel/example_mesh_picked_points.pp'))
+m1 <- file2mesh('~/example_mesh.ply')
+m1points <- as.matrix(read.mpp('~/example_mesh_picked_points.pp'))
 
 m1rot <- rotmesh.onto(m1, m1points, templatepoints, scale = T)
 m1Rlm <- m1rot$yrot
